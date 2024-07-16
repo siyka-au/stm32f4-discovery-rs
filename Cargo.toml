@@ -1,0 +1,35 @@
+[package]
+name = "lernz"
+version = "0.1.0"
+authors = ["piratecarrot <39475419+piratecarrot@users.noreply.github.com>"]
+edition = "2021"
+
+[dependencies]
+cortex-m = "0.7"
+cortex-m-rt = "0.7"
+display-interface = "0.5.0"
+display-interface-spi = "0.5.0"
+embedded-graphics = "0.8.1"
+embedded-hal = "1.0.0"
+embedded-hal-bus = "0.2.0"
+embedded-text = "0.7.2"
+ili9341 = "0.6.0"
+panic-halt = "0.2.0"
+ssd1306 = "0.8.4"
+u8g2-fonts = "0.4.0"
+
+
+[dependencies.stm32f4xx-hal]
+version = "0.21.0"
+features = ["stm32f429", ]
+
+# Set the default for dependencies.
+[profile.dev.package."*"]
+opt-level = "s"
+
+[profile.release]
+codegen-units = 1
+incremental = false
+debug = true
+lto = true
+opt-level = "s"
